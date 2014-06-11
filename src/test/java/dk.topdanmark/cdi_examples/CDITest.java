@@ -16,6 +16,8 @@ import javax.naming.NamingException;
 
 /**
  * Created by CJY on 11-06-2014.
+ * http://arquillian.org/guides/getting_started/
+ *
  */
 @RunWith(Arquillian.class)
 public class CDITest {
