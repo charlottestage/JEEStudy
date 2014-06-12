@@ -9,10 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
-import javax.naming.Context;
-import javax.naming.NamingException;
 
 /**
  * Created by CJY on 11-06-2014.
@@ -25,8 +22,10 @@ public class CDITest {
     @Deployment
     public static JavaArchive createDeployment() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
-                .addClasses(Greeting.class, SimpleGreeting.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addClasses(
+                        Greeting.class,
+                        SimpleGreeting.class
+                ).addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         System.out.println(jar.toString(true));
         return jar;
     }

@@ -1,5 +1,5 @@
-import dk.topdanmark.cdi_examples.Greeting;
-import dk.topdanmark.cdi_examples.SimpleGreeting;
+package dk.topdanmark.cdi_examples;
+
 import org.junit.Assert;
 import org.junit.Test;
 

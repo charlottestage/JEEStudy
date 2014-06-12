@@ -11,7 +11,6 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-
     </properties>
 
     <dependencyManagement>
@@ -62,13 +61,14 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- Arquillian + Embedded EJB Container -->
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- Embedded EJB Container -->
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
@@ -87,6 +87,7 @@
             <version>1.6.4</version>
             <scope>test</scope>
         </dependency>
+        <!-- END: Arquillian + Embedded EJB Container -->
 
 
     </dependencies>
