@@ -19,24 +19,42 @@ import javax.inject.Inject;
 @RunWith(Arquillian.class)
 public class CDITest {
 
+    @Inject Greeting greeter;
+
+    @Test
+    public void testSimpleGreeting() {
+        Assert.assertNotNull(greeter);
+
+        Assert.assertEquals("Hello Jakob", greeter.greet("Jakob"));
+
+    }
+
+    @Inject @Fancy Greeting fancyGreeter;
+
+    @Test
+    public void testFancyGreeter () {
+
+        Assert.assertNotNull(fancyGreeter);
+
+        Assert.assertEquals("Nice to meet you, hello Jakob", fancyGreeter.greet("Jakob"));
+
+    }
+
+
+
+
     @Deployment
     public static JavaArchive createDeployment() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
                 .addClasses(
                         Greeting.class,
-                        SimpleGreeting.class
+                        SimpleGreeting.class,
+                        Fancy.class,
+                        FancyGreeting.class
+
                 ).addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         System.out.println(jar.toString(true));
         return jar;
     }
 
-
-    @Inject
-    Greeting greeter;
-
-    @Test
-    public void should_create_greeting() {
-        Assert.assertEquals("Hello Jakob", greeter.greet("Jakob"));
-
-    }
 }
